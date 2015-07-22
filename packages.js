@@ -87,16 +87,16 @@
 		{
 			"name": "Layout",
 			"alias": "Layout",
-			"path": "App_plugins/UmbracoScaffolding/configs/Templates/Layout.cshtml",
+			"path": "src/Templates/Layout.cshtml",
 			"children": [
 				{
 					"name": "Frontpage",
 					"alias": "Frontpage",
-					"path": "https://raw.githubusercontent.com/umbraco/Umbraco-CMS/7c4a189aa3cf583954defd9c43a3e55e325f2c3f/src/Umbraco.Web.UI/Views/Partials/Grid/Editors/Base.cshtml"
+					"path": "src/Templates/Frontpage.cshtml"
 				},{
 					"name": "Textpage",
 					"alias": "Textpage",
-					"path": "\\\\192.168.99.10\\opten\\01_Projekte\\02_Interne_Projekte\\Umbraco\\Scaffolding\\dontdelete.txt"
+					"path": "src/Templates/Textpage.cshtml"
 				}
 			],
 			"dependencies": [
