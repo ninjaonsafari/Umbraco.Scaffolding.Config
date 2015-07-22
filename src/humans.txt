@@ -1,0 +1,74 @@
+  ___  ___ _____ ___ _  _ 
+ / _ \| _ \_   _| __| \| |
+| (_) |  _/ | | | _|| .` |
+ \___/|_|   |_| |___|_|\_| AG
+
+
+/* 
+
+// TEAM //////////////////////////////////////////////////////////////////////////
+
+*/
+
+
+Company:	OPTEN AG
+Site:		http://www.opten.ch	
+Location:	Switzerland, Zürich
+Contact:	info [at] opten [dot] ch
+
+Developer:	Tobias Morf
+Contact:	tobias [dot] morf [at] opten [dot] ch
+
+Developer:	Aaron Morf
+Contact:	aaron [dot] morf [at] opten [dot] ch
+
+Developer:	Calvin Frei
+Contact:	calvin [dot] frei [at] opten [dot] ch
+
+Designer:	Diego Martinez
+Contact:	diego [dot] martinez [at] opten [dot] ch
+
+Developer:	Mary Waldvogel
+Contact:	mary [dot] waldvogel [at] opten [dot] ch
+
+Developer:	Matthias Leonhardt
+Contact:	matthias [dot] leonhardt [at] opten [dot] ch
+
+Sales:		Michael Karrer
+Contact:	michael [dot] karrer [at] opten [dot] ch
+
+Developer:	Severin d'Heureuse
+Contact:	severin [dot] dheureuse [at] opten [dot] ch
+
+Designer:	Tamara Oess
+Contact:	tamara [dot] oess [at] opten [dot] ch
+
+Developer:	Tim Pickin
+Contact:	tim [dot] pickin [at] opten [dot] ch
+
+Developer:	Tobias Lopez
+Contact:	tobias [dot] lopez [at] opten [dot] ch
+
+/* 
+
+// THANKS TO /////////////////////////////////////////////////////////////////////
+
+*/
+
+Hoster:		simplehosting
+Site:		http://www.simplehosting.ch
+
+/* 
+
+// SITE //////////////////////////////////////////////////////////////////////////
+
+*/
+
+
+{{info}}
+
+
+/* THANKS FOR BEING HERE */
+
+/* the humans responsible & colophon */
+/* humanstxt.org */

@@ -1,0 +1,67 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	var root = Model.Content.DescendantOrSelf("Settings");
+	if (root != null) { 
+		var imageId = root.GetPropertyValue<string>("favicon");
+		var name = root.GetPropertyValue<string>("websiteName");
+
+		if (string.IsNullOrWhiteSpace(imageId) == false)
+		{
+			var image = Umbraco.TypedMedia(imageId);
+
+			if (image != null)
+			{
+				<!-- Open Graph Tags -->
+				<meta property="og:title" content="@Html.Raw(Umbraco.Field("seoTitle", recursive: true))" />
+				<meta property="og:image" content="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<meta property="og:description" content="@Html.Raw(Umbraco.Field("seoDescription", recursive: true))" />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="@Request.Url.AbsoluteUri" />
+
+				<!-- Twitter Tags -->
+				<meta name="twitter:card" content="summary" />
+				<meta name="twitter:site" content="@Html.Raw(name)" />
+				<meta name="twitter:title" content="@Html.Raw(Umbraco.Field("seoTitle", recursive: true))" />
+				<meta name="twitter:description" content="@Html.Raw(Umbraco.Field("seoDescription", recursive: true))" />
+				<meta name="twitter:image" content="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=375&amp;heightratio=1.16&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<meta name="twitter:url" content="@Request.Url.AbsoluteUri" />
+
+				<!-- Windows Tile Icon -->
+				<meta name="application-name" content="@name" />
+				<meta name="msapplication-TileColor" content="#68bfac" />
+				<meta name="msapplication-TileImage" content="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=144&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<meta name="msapplication-starturl" content="http://@Request.Url.Authority" />
+				<meta name="msapplication-navbutton-color" content="#68bfac" />
+				<meta name="msapplication-window" content="width=1280;height=1024" />
+				<meta name="msapplication-tooltip" content="@name" />
+				<meta name="msapplication-square70x70logo" content="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=70&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<meta name="msapplication-square150x150logo" content="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=150&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<meta name="msapplication-wide310x150logo" content="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=310&amp;heightratio=0.4838709677419354838709677419&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<meta name="msapplication-square310x310logo" content="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=310&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+
+
+				<!-- Theme -->
+				<meta name="theme-color" content="#68bfac" />
+
+				<!-- Icons -->
+				<link rel="icon" type="image/png" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=192&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" sizes="192x192" />
+				<link rel="icon" type="image/png" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=160&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" sizes="160x160" />
+				<link rel="icon" type="image/png" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=96&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" sizes="96x96" />
+				<link rel="icon" type="image/png" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=16&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" sizes="16x16" />
+				<link rel="icon" type="image/png" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=32&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" sizes="32x32" />
+
+				<!-- Apple Touch Icon -->
+				<link rel="apple-touch-icon" sizes="57x57" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=57&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<link rel="apple-touch-icon" sizes="114x114" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=114&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<link rel="apple-touch-icon" sizes="72x72" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=72&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<link rel="apple-touch-icon" sizes="144x144" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=144&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<link rel="apple-touch-icon" sizes="60x60" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=60&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<link rel="apple-touch-icon" sizes="120x120" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=120&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<link rel="apple-touch-icon" sizes="76x76" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=76&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<link rel="apple-touch-icon" sizes="152x152" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=152&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+				<link rel="apple-touch-icon" sizes="180x180" href="@image.Url?anchor=center&amp;mode=crop&amp;quality=90&amp;width=180&amp;heightratio=1&amp;maxHeight=2500&amp;maxWidth=2500" />
+			}
+		}
+	}
+}
+

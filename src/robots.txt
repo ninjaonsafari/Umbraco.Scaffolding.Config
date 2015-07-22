@@ -1,0 +1,31 @@
+# robots.txt for Umbraco
+User-agent: *
+
+# now the robots wont index this site
+# if you go live remove the line below
+Disallow: /
+
+Disallow: /App_Browsers/
+Disallow: /App_Code/
+Disallow: /App_Data/
+Disallow: /App_Plugins/
+Disallow: /aspnet_client/
+Disallow: /bin/
+Disallow: /config/
+Disallow: /css/
+Disallow: /data/
+Disallow: /font/
+Disallow: /img/
+Disallow: /images/
+Disallow: /Install/
+Disallow: /macroScripts/
+Disallow: /macropages/
+Disallow: /Media.Cache/
+Disallow: /picture_library/
+Disallow: /previews/
+Disallow: /scripts/
+Disallow: /umbraco/
+Disallow: /umbraco_client/
+Disallow: /usercontrols/
+Disallow: /Views/
+Disallow: /xslt/

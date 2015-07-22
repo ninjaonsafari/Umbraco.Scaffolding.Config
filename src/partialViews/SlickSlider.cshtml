@@ -1,0 +1,26 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+		var imageIds = Model.Content.GetPropertyValue<string>("images");
+
+		if (string.IsNullOrWhiteSpace(imageIds) == false)
+		{
+			<div class="partner-slider">
+				@foreach (var imageId in imageIds.Split(','))
+				{
+					var image = Umbraco.TypedContent(imageId);
+					if (image != null)
+					{
+						<div class="item">
+							<img src="@image.Url" alt="@image.Name" title="@image.Name" />
+						</div>
+					}
+				}
+			</div>
+		}
+	}
+}
+
+@section head {
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.4.1/slick.min.css" />
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.4.1/slick.min.js"></script>
+}

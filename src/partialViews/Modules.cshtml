@@ -1,0 +1,18 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	var modules = Model.Content.GetPropertyValue("modules");
+
+	if (modules != null && modules.Any())
+	{
+		foreach (var module in modules)
+		{
+			switch (module.Alias)
+			{
+				default:
+					<p>@module.Alias</p>
+					break;
+			}
+
+		}
+	}
+}

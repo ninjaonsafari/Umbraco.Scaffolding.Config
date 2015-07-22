@@ -1,0 +1,46 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = null;
+	var roots = Umbraco.TypedContentAtRoot().Where(o => o.IsVisible() && o.TemplateId > 0);
+	umbraco.library.ChangeContentType("text/xml");
+}<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
+	@if (roots.Any())
+	{
+		foreach (var root in roots)
+		{
+			var nodes = root.DescendantsOrSelf().Where(o => o.IsVisible() && o.TemplateId > 0);
+
+			foreach (var node in nodes)
+			{
+				var date = DateTime.Parse(node.UpdateDate.ToString());
+
+				var url = string.Format("Http://{0}{1}", HttpContext.Current.Request.Url.Host, node.Url);
+				
+
+				<url>
+					<loc>@Html.Raw(url)</loc>
+					<lastmod>@date.ToString("yyyy-MM-ddThh:mm+00:00")</lastmod>
+
+					<changefreq>@Html.Raw(GetPropertyOrDefault(node, "metaChangeFreq", "monthly"))</changefreq>
+					<priority>@Html.Raw(GetPropertyOrDefault(node, "metaPriority", "0.5"))</priority>
+				</url>
+			}
+		}
+	}
+</urlset>
+
+@functions{
+	public string GetPropertyOrDefault(IPublishedContent node, string property, string defaultValue)
+	{
+		if (node == null || string.IsNullOrWhiteSpace(property))
+			return defaultValue;
+
+		var propertyValue = node.GetPropertyValue<int>(property);
+
+		if (propertyValue == null || propertyValue <= 0)
+			return defaultValue;
+
+		return Umbraco.GetPreValueAsString(propertyValue);
+	}
+}
